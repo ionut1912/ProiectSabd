@@ -13,9 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orders.API", "PlacedOrders.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customers.API", "Customer.API\Customers.API.csproj", "{F652689A-2731-4916-AD65-20A9480FC1DD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderDetails.API", "OrderDetails.API\OrderDetails.API.csproj", "{4C2E4871-360C-4D36-9FB0-4F79EFDC42F6}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MenuItem.API", "MenuItem.API\MenuItem.API.csproj", "{C5C54948-6C33-48C0-A78B-DDF6DF662955}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MenuItems.API", "MenuItem.API\MenuItems.API.csproj", "{C5C54948-6C33-48C0-A78B-DDF6DF662955}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +41,6 @@ Global
 		{F652689A-2731-4916-AD65-20A9480FC1DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F652689A-2731-4916-AD65-20A9480FC1DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F652689A-2731-4916-AD65-20A9480FC1DD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4C2E4871-360C-4D36-9FB0-4F79EFDC42F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C2E4871-360C-4D36-9FB0-4F79EFDC42F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4C2E4871-360C-4D36-9FB0-4F79EFDC42F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4C2E4871-360C-4D36-9FB0-4F79EFDC42F6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C5C54948-6C33-48C0-A78B-DDF6DF662955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C5C54948-6C33-48C0-A78B-DDF6DF662955}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5C54948-6C33-48C0-A78B-DDF6DF662955}.Release|Any CPU.ActiveCfg = Release|Any CPU

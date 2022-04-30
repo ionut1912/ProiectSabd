@@ -1,3 +1,8 @@
+
+
+using MenuItems.API.Profiles;
+using MenuItems.API.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,7 +11,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddSingleton<IMenuItemRepository>(InitializeCosmosClientInstanceAsync(builder.Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
+builder.Services.AddAutoMapper(typeof(MenuItemProfile).Assembly);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,3 +27,15 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+static async Task<MenuItemRepository> InitializeCosmosClientInstanceAsync(IConfigurationSection configurationSection)
+{
+    var databaseName = configurationSection["DatabaseName"];
+    var containerName = configurationSection["ContainerName"];
+    var account = configurationSection["Account"];
+    var key = configurationSection["Key"];
+    var client = new Microsoft.Azure.Cosmos.CosmosClient(account, key);
+    var database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
+    await database.Database.CreateContainerIfNotExistsAsync(containerName, "/id");
+    var cosmosDbService = new MenuItemRepository(client, databaseName, containerName);
+    return cosmosDbService;
+}
