@@ -30,12 +30,26 @@ namespace Restaurants.API.Controllers
         }
 
         [HttpPost]
-        public async Task Create([FromBody] RestaurantForCreation restaurantForCreation)
+        public async Task<Restaurant> Create([FromBody] RestaurantForCreation restaurantForCreation)
         {
 
 
-            await _restaurantRepository.AddAsync(restaurantForCreation);
+           var restaurant=await _restaurantRepository.AddAsync(restaurantForCreation);
+            return restaurant;
 
+        }
+        [HttpPut]
+        public async Task<IActionResult> Edit([FromBody] Restaurant restaurant)
+        {
+            await _restaurantRepository.UpdateAsync(restaurant.Id,restaurant);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            await _restaurantRepository.DeleteAsync(id);
+            return NoContent();
         }
 
     }

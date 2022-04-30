@@ -1,5 +1,6 @@
 
 
+using Microsoft.Azure.Cosmos;
 using Restaurants.API.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,19 +12,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
-builder.Services.AddSingleton<IRestaurantRepository>(InitializeCosmosClientInstanceAsync(builder.Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
-//builder.Services.AddHttpClient<RestaurantRepository>(c=>c.BaseAddress = new Uri(builder.Configuration["ApiConfigs:Cities:Uri"]));
-builder.Services.AddHttpClient("Cities", httpClient =>
-{
-    httpClient.BaseAddress = new Uri(builder.Configuration["ApiConfigs:Cities:Uri"]);
 
-    // using Microsoft.Net.Http.Headers;
-    // The GitHub API requires two headers.
-    //httpClient.DefaultRequestHeaders.Add(
-    //    HeaderNames.Accept, "application/vnd.github.v3+json");
-    //httpClient.DefaultRequestHeaders.Add(
-    //    HeaderNames.UserAgent, "HttpRequestsSample");
-});
+builder.Services.AddSingleton<IRestaurantRepository>(InitializeCosmosClientInstanceAsync(builder.Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

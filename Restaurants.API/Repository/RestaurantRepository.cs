@@ -8,7 +8,8 @@ namespace Restaurants.API.Repository
     public class RestaurantRepository: IRestaurantRepository
     {
         private readonly Container? _container;
-        private readonly IHttpClientFactory? _httpClientFactory;
+        private readonly Container? _container1;
+        private readonly HttpClient? _httpClient;
         public RestaurantRepository(
             CosmosClient cosmosDbClient,
             string databaseName,
@@ -17,21 +18,13 @@ namespace Restaurants.API.Repository
            
         {
             _container = cosmosDbClient.GetContainer(databaseName, containerName);
-          
+            _container1= cosmosDbClient.GetContainer(databaseName, "Cities");
          
         }
-        public RestaurantRepository(
-
-            CosmosClient cosmosDbClient,
-            string databaseName,
-            string containerName, IHttpClientFactory httpClientFactory) : this(cosmosDbClient, databaseName, containerName)
-        {
-            _httpClientFactory = httpClientFactory;
-        }
-            
+    
 
 
-        public async Task AddAsync(RestaurantForCreation restaurantForCreation)
+        public async Task<Restaurant> AddAsync(RestaurantForCreation restaurantForCreation)
         {
             var restaurantCity = GetByIdAsync(restaurantForCreation.CityId).Result;
             Restaurant restaurant = new Restaurant
@@ -40,7 +33,7 @@ namespace Restaurants.API.Repository
                 Address = restaurantForCreation.Address,
                 City = restaurantCity
             };
-            await _container.CreateItemAsync(restaurant, new PartitionKey(restaurant.Id));
+           return await _container.CreateItemAsync(restaurant, new PartitionKey(restaurant.Id));
         }
         public async Task DeleteAsync(string id)
         {
@@ -76,9 +69,15 @@ namespace Restaurants.API.Repository
 
         public async Task<City> GetByIdAsync(string id)
         {
-            var httpClient = _httpClientFactory.CreateClient();
-            var response = await httpClient.GetAsync($"/api/City/{id}");
-            return await response.ReadContentAs<City>();
+            try
+            {
+                var response = await _container1.ReadItemAsync<City>(id, new PartitionKey(id));
+                return response.Resource;
+            }
+            catch (CosmosException) //For handling item not found and other exceptions
+            {
+                return null;
+            }
         }
     }
 }

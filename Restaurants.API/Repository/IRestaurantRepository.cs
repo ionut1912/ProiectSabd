@@ -8,7 +8,7 @@ namespace Restaurants.API.Repository
     {
         Task<IEnumerable<Restaurant>> GetMultipleAsync(string query);
         Task<Restaurant> GetAsync(string id);
-        Task AddAsync(RestaurantForCreation restaurantForCreation);
+        Task<Restaurant> AddAsync(RestaurantForCreation restaurantForCreation);
         Task UpdateAsync(string id, Restaurant restaurant);
         Task DeleteAsync(string id);
         Task<City> GetByIdAsync(string id); 

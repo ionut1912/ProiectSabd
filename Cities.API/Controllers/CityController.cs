@@ -39,7 +39,7 @@ namespace Cities.API.Controllers
             return CreatedAtAction(nameof(Get), new { id = city.Id },city);
         }
     
-        [HttpPut("{id}")]
+        [HttpPut]
         public async Task<IActionResult> Edit([FromBody] City city)
         {
             await _cityRepository.UpdateAsync(city.Id, city);

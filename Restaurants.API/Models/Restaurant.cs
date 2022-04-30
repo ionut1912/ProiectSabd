@@ -9,7 +9,7 @@ namespace Restaurants.API.Models
         public string? Id { get; set; }
         [JsonProperty(PropertyName ="address")]
         public string? Address { get; set; }
-        [JsonProperty(PropertyName ="city_id")]
+        [JsonProperty(PropertyName ="city")]
         public City? City{ get; set; }
     }
 }
