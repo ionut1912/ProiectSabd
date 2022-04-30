@@ -1,6 +1,6 @@
 ﻿using Cities.API.Models;
 using Microsoft.Azure.Cosmos;
-using Restaurants.API.Extensions;
+
 using Restaurants.API.Models;
 
 namespace Restaurants.API.Repository
@@ -62,8 +62,15 @@ namespace Restaurants.API.Repository
             }
             return results;
         }
-        public async Task UpdateAsync(string id, Restaurant restaurant)
+        public async Task UpdateAsync(string id, RestaurantForUpdate restaurantForUpdate)
         {
+            var cityRestaurant=GetByIdAsync(restaurantForUpdate.CityId).Result;
+            Restaurant restaurant = new Restaurant
+            {
+                Id = id,
+                Address = restaurantForUpdate.Address,
+                City = cityRestaurant
+            };
             await _container.UpsertItemAsync(restaurant, new PartitionKey(id));
         }
 

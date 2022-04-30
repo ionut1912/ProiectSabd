@@ -8,6 +8,7 @@ namespace Cities.API.Profiles
         public CityProfile()
         {
             CreateMap<City, CityForCreation>().ReverseMap();
+            CreateMap<City,CityForUpdate>().ReverseMap();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Restaurants.API.Models;
 using Restaurants.API.Repository;
@@ -38,10 +38,10 @@ namespace Restaurants.API.Controllers
             return restaurant;
 
         }
-        [HttpPut]
-        public async Task<IActionResult> Edit([FromBody] Restaurant restaurant)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Edit(string id,RestaurantForUpdate restaurant)
         {
-            await _restaurantRepository.UpdateAsync(restaurant.Id,restaurant);
+            await _restaurantRepository.UpdateAsync(id,restaurant);
             return NoContent();
         }
 

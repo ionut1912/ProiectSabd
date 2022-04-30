@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Cities.API.Models;
 using Cities.API.Repository;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cities.API.Controllers
@@ -38,14 +37,27 @@ namespace Cities.API.Controllers
             await _cityRepository.AddAsync(city);
             return CreatedAtAction(nameof(Get), new { id = city.Id },city);
         }
-    
-        [HttpPut]
-        public async Task<IActionResult> Edit([FromBody] City city)
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Edit(string id, CityForUpdate cityForUpdate)
         {
-            await _cityRepository.UpdateAsync(city.Id, city);
+
+        
+        
+            var city = await _cityRepository.GetAsync(id);
+
+            if (city is null)
+            {
+                return NotFound();
+            }
+            var updatedCity = _mapper.Map<City>(cityForUpdate);
+            updatedCity.Id = city.Id;
+
+            await _cityRepository.UpdateAsync(id, updatedCity);
+
             return NoContent();
         }
-  
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {

@@ -1,6 +1,5 @@
 
 
-using Microsoft.Azure.Cosmos;
 using Restaurants.API.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
