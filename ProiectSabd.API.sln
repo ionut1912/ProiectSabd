@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurants.API", "Restaura
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderStatus.API", "OrderStatus.API\OrderStatus.API.csproj", "{E1F9B3A5-15F3-47F5-A60C-51B03E470685}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlacedOrders.API", "PlacedOrders.API\PlacedOrders.API.csproj", "{031E28AC-22C3-4669-AD28-5BD80BA4C6C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orders.API", "PlacedOrders.API\Orders.API.csproj", "{031E28AC-22C3-4669-AD28-5BD80BA4C6C5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customers.API", "Customer.API\Customers.API.csproj", "{F652689A-2731-4916-AD65-20A9480FC1DD}"
 EndProject
