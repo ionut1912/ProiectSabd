@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cities.API", "Cities.API\Cities.API.csproj", "{FFD2A951-EA24-4A76-A2B8-E7C2358A2050}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cities.API", "Cities.API\Cities.API.csproj", "{FFD2A951-EA24-4A76-A2B8-E7C2358A2050}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurants.API", "Restaurants.API\Restaurants.API.csproj", "{19710F9B-23AB-460B-90FC-7C380329951E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurants.API", "Restaurants.API\Restaurants.API.csproj", "{19710F9B-23AB-460B-90FC-7C380329951E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderStatus.API", "OrderStatus.API\OrderStatus.API.csproj", "{E1F9B3A5-15F3-47F5-A60C-51B03E470685}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderStatus.API", "OrderStatus.API\OrderStatus.API.csproj", "{E1F9B3A5-15F3-47F5-A60C-51B03E470685}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlacedOrders.API", "PlacedOrders.API\PlacedOrders.API.csproj", "{031E28AC-22C3-4669-AD28-5BD80BA4C6C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlacedOrders.API", "PlacedOrders.API\PlacedOrders.API.csproj", "{031E28AC-22C3-4669-AD28-5BD80BA4C6C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.API", "Customer.API\Customer.API.csproj", "{F652689A-2731-4916-AD65-20A9480FC1DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customers.API", "Customer.API\Customers.API.csproj", "{F652689A-2731-4916-AD65-20A9480FC1DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderDetails.API", "OrderDetails.API\OrderDetails.API.csproj", "{4C2E4871-360C-4D36-9FB0-4F79EFDC42F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderDetails.API", "OrderDetails.API\OrderDetails.API.csproj", "{4C2E4871-360C-4D36-9FB0-4F79EFDC42F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuItem.API", "MenuItem.API\MenuItem.API.csproj", "{C5C54948-6C33-48C0-A78B-DDF6DF662955}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MenuItem.API", "MenuItem.API\MenuItem.API.csproj", "{C5C54948-6C33-48C0-A78B-DDF6DF662955}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

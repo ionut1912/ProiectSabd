@@ -9,7 +9,7 @@ namespace Restaurants.API.Repository
     {
         private readonly Container? _container;
         private readonly Container? _container1;
-        private readonly HttpClient? _httpClient;
+ 
         public RestaurantRepository(
             CosmosClient cosmosDbClient,
             string databaseName,
