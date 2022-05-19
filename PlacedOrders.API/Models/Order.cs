@@ -9,9 +9,7 @@ namespace Orders.API.Models
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
         [JsonProperty(PropertyName = "restaurant")]
-        public Restaurant Restaurant;
-        [JsonProperty(PropertyName ="address")]
-        public string Address { get; set; }
+        public Restaurant Restaurant { get; set; }
         [JsonProperty(PropertyName ="customer")]
         public Customer Customer { get; set; }
         [JsonProperty(PropertyName ="price")]

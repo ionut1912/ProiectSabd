@@ -30,7 +30,6 @@ namespace Orders.API.Repository
             {
                 Id = Guid.NewGuid().ToString(),
                 Restaurant=orderRestaurant,
-                Address=orderForCreation.address,
                 Customer = orderCustomer,
                 Price=orderForCreation.price
             };
@@ -100,7 +99,6 @@ namespace Orders.API.Repository
             {
                 Id =id,
                 Restaurant = orderRestaurant,
-                Address = orderForUpdate.address,
                 Customer = orderCustomer,
                 Price = orderForUpdate.price
             }; ;

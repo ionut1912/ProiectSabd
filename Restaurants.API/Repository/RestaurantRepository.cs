@@ -30,7 +30,7 @@ namespace Restaurants.API.Repository
             Restaurant restaurant = new Restaurant
             {
                 Id = Guid.NewGuid().ToString(),
-                Address = restaurantForCreation.Address,
+                Name = restaurantForCreation.Name,
                 City = restaurantCity
             };
            return await _container.CreateItemAsync(restaurant, new PartitionKey(restaurant.Id));
@@ -68,7 +68,7 @@ namespace Restaurants.API.Repository
             Restaurant restaurant = new Restaurant
             {
                 Id = id,
-                Address = restaurantForUpdate.Address,
+                Name=restaurantForUpdate.Name,
                 City = cityRestaurant
             };
             await _container.UpsertItemAsync(restaurant, new PartitionKey(id));

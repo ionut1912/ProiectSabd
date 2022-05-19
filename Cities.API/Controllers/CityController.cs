@@ -41,9 +41,6 @@ namespace Cities.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Edit(string id, CityForUpdate cityForUpdate)
         {
-
-        
-        
             var city = await _cityRepository.GetAsync(id);
 
             if (city is null)

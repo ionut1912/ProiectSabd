@@ -6,10 +6,10 @@ namespace Restaurants.API.Models
     public class Restaurant
     {
         [JsonProperty(PropertyName = "id")]
-        public string? Id { get; set; }
-        [JsonProperty(PropertyName ="address")]
-        public string? Address { get; set; }
+        public string Id { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
         [JsonProperty(PropertyName ="city")]
-        public City? City{ get; set; }
+        public City? City{ get; set;}  
     }
 }

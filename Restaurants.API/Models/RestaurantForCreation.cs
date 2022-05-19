@@ -2,9 +2,7 @@
 {
     public class RestaurantForCreation
     {
-       
-        public string? Address { get; set; }
-    
+        public string Name { get; set; }
         public string? CityId { get; set; }
     }
 }
